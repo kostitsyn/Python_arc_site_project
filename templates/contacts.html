@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Contacts</title>
@@ -13,5 +13,15 @@
         <li><a href="catalog.html">Каталог</a></li>
         <li><a href="#">Контакты</a></li>
     </ul>
+    <h3>Форма POST-запроса</h3>
+    <form method="post">
+        <p>Тема сообщения:</p>
+        <input name="theme" size="48"><br><br>
+        <textarea name="text" cols="50" rows="10" placeholder="Текст сообщения"></textarea><br>
+        <p>Ваша почта:</p>
+        <input name="email" type="email"><br><br>
+        <input type="submit">
+        <input type="reset">
+    </form>
 </body>
 </html>
