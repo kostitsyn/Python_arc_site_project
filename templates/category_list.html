@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "includes/inc_main_menu.html" %}
+    <ul>
+        {% for item in obj_list %}
+        <li>
+            {{item.name}} <span>Количество курсов: {{item.course_count()}}</span>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
