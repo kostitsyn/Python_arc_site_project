@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Main</title>
-</head>
-<body>
-    <h1>Обучение программированию на Python</h1>
+{% extends "base.html" %}
+{% block body %}
+{% include "includes/inc_main_menu.html" %}
     <div>Значения из Front Controller: {{secret}}, {{language}}</div>
-    <div>Меню</div>
-    <ul>
-        <li><a href="#">Главная</a></li>
-        <li><a href="about.html">О нас</a></li>
-        <li><a href="catalog.html">Каталог</a></li>
-        <li><a href="contacts.html">Контакты</a></li>
-    </ul>
     <h3>Форма GET-запроса с параметрами</h3>
-    <form method="get">
-        <input name="name" placeholder="Ваше имя"><br><br>
-        <input name="surname" placeholder="Ваша фамилия"><br><br>
-        <input name="age" type="number" placeholder="Ваш возраст"><br><br>
-        <input type="submit">
-        <input type="reset">
-    </form>
-</body>
-</html>
+        <form method="get">
+            <input class="element" name="name" placeholder="Ваше имя"><br><br>
+            <input class="element" name="surname" placeholder="Ваша фамилия"><br><br>
+            <input class="element" name="age" type="number" placeholder="Ваш возраст"><br><br>
+            <select class="element" name="user_type">
+                {% for type in user_types %}
+                    <option>{{type}}</option>
+                {% endfor %}
+            </select>
+            <input class="element" type="submit">
+            <input class="element" type="reset">
+        </form>
+{% endblock %}

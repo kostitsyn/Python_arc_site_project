@@ -1,12 +1,19 @@
+from wsgiref.simple_server import make_server
 from framework.core import Application
 import views
+from logging import Log
+
+logger = Log('main_log')
 
 routes = {'/': views.main_view,
-          '/index.html': views.main_view,
-          '/about.html': views.about_view,
-          '/contacts.html': views.contacts_view,
-          '/catalog.html': views.catalog_view,
-          '/other/': views.other_view,
+          '/index/': views.main_view,
+          '/about/': views.about_view,
+          '/contacts/': views.contacts_view,
+          '/category_list/': views.category_list_view,
+          '/course_list/': views.course_list_view,
+          '/create_category/': views.create_category_view,
+          '/create_course/': views.create_course_view,
+          '/copy_course/': views.copy_course_view,
           }
 
 
@@ -25,5 +32,9 @@ def user_authorize(request):
 fronts = [set_key, set_language, user_authorize]
 
 application = Application(routes, fronts)
+
+with make_server('', 8888, application) as httpd:
+    print('Start server')
+    httpd.serve_forever()
 
 

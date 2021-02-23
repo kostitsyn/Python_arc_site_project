@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="342024e8-30ec-4662-b6b8-351cc2ff874d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Урок 1. Практическое задание.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Урок 2. Практическое задание.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Урок 2. Практическое задание.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/framework" beforeDir="false" afterPath="$PROJECT_DIR$/framework" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/framework/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/framework/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/framework/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/templates.py" beforeDir="false" afterPath="$PROJECT_DIR$/framework/templates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/catalog.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/catalog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +31,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/framework" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1oHw7rtpky6u3OQKwFUsJpZodXR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -41,17 +44,23 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Программирование\IV четверть\Python_arc_and_Design_patterns\Урок 4. Порождающие паттерны\Урок 4. Практическое задание" />
+      <recent name="E:\Программирование\IV четверть\Python_arc_and_Design_patterns\Урок 3. Принципы проектирования\Урок 3. Практическое задание\framework" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Программирование\IV четверть\Python_arc_and_Design_patterns\Урок 4. Порождающие паттерны\Урок 4. Практическое задание\templates" />
+      <recent name="E:\Программирование\IV четверть\Python_arc_and_Design_patterns\Урок 2. Архитектура Python-приложений\Урок 2. Практическое задание\framework" />
       <recent name="E:\Программирование\IV четверть\Python_arc_and_Design_patterns\Урок 1. Паттерны web-представления\Урок 1. Практическое задание" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.1">
+  <component name="RunManager" selected="Python.main">
     <configuration name="1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Урок 2. Практическое задание" />
+      <module name="Урок 4. Практическое задание" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -71,19 +80,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="core" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Урок 2. Практическое задание" />
+    <configuration name="logging" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Урок 4. Практическое задание" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/framework" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/framework/core.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/logging.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -93,7 +102,7 @@
       <method v="2" />
     </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Урок 2. Практическое задание" />
+      <module name="Урок 4. Практическое задание" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -113,29 +122,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="templates" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Урок 2. Практическое задание" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/framework" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/framework/templates.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Урок 2. Практическое задание" />
+    <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Урок 4. Практическое задание" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -146,7 +134,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="singletone" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Урок 4. Практическое задание" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/patterns" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/patterns/singletone.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -157,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.1" />
-        <item itemvalue="Python.templates" />
-        <item itemvalue="Python.test1" />
-        <item itemvalue="Python.core" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.models" />
+        <item itemvalue="Python.1" />
+        <item itemvalue="Python.logging" />
+        <item itemvalue="Python.singletone" />
       </list>
     </recent_temporary>
   </component>
@@ -191,51 +200,87 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="276" y="275" key="FileChooserDialogImpl" timestamp="1613053765179">
+    <state x="276" y="275" key="FileChooserDialogImpl" timestamp="1614067844585">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="2196" y="327" key="FileChooserDialogImpl/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613038689619" />
-    <state x="276" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1613053765179" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1613368935438">
+    <state x="276" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1614067844585" />
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom" timestamp="1614089106252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613368935438" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613045567064" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613319440312" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1613368935437">
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613816655152" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613810300579" />
+    <state width="1899" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1614089106252" />
+    <state width="1899" height="348" key="GridCell.Tab.0.center" timestamp="1614089106252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613368935437" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613045567064" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613319440312" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1613368935437">
+    <state width="1899" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613816655152" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613810300579" />
+    <state width="1899" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1614089106252" />
+    <state width="1899" height="348" key="GridCell.Tab.0.left" timestamp="1614089106252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613368935437" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613045567064" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613319440312" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1613368935438">
+    <state width="1899" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613816655152" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613810300579" />
+    <state width="1899" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1614089106252" />
+    <state width="1899" height="348" key="GridCell.Tab.0.right" timestamp="1614089106252">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613368935438" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613045567064" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613319440312" />
-    <state x="2504" y="123" width="998" height="752" key="SettingsEditor" timestamp="1613377204529">
-      <screen x="1920" y="52" width="1920" height="1040" />
+    <state width="1899" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613816655152" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613810300579" />
+    <state width="1899" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1614089106252" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1614089106253">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="163" key="SettingsEditor/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613365251175" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613816655152" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1614089106253" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1614089106252">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613816655152" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1614089106252" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1614089106252">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613816655152" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1614089106252" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1614089106252">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613816655152" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1614089106252" />
+    <state x="0" y="163" width="998" height="752" key="SettingsEditor" timestamp="1613915929782">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="305" y="115" key="SettingsEditor/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613794433971" />
     <state x="2504" y="123" width="998" height="752" key="SettingsEditor/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613377204529" />
-    <state x="0" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1613051244187" />
-    <state x="2111" y="396" key="com.intellij.ide.util.TipDialog" timestamp="1613377318968">
-      <screen x="1920" y="52" width="1920" height="1040" />
+    <state x="0" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1613915929782" />
+    <state x="191" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1614062763732">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="191" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613371782842" />
-    <state x="2111" y="396" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613377318968" />
-    <state x="191" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613300152177" />
-    <state x="51" y="0" width="1441" height="715" key="dock-window-1" timestamp="1613365252299">
+    <state x="2111" y="396" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613819138576" />
+    <state x="2111" y="396" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613810007768" />
+    <state x="191" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614062763732" />
+    <state x="257" y="158" width="1441" height="1025" key="dock-window-1" timestamp="1613726754528">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="51" y="0" width="1441" height="715" key="dock-window-1/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1613365252299" />
-    <state x="51" y="0" width="1441" height="715" key="dock-window-1/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613045480417" />
+    <state x="257" y="158" width="1441" height="1025" key="dock-window-1/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1613726754528" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../../../../III четверть/Data base and PyQT/Урок 2. Дескрипторы и метаклассы/Урок 2. Практическое задание/lesson_2_Kostitsyn/descriptors.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../../../../III четверть/Data base and PyQT/Урок 2. Дескрипторы и метаклассы/Урок 2. Практическое задание/lesson_2_Kostitsyn/client.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
