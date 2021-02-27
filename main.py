@@ -22,9 +22,9 @@ def user_authorize(request):
 fronts = [set_key, set_language, user_authorize]
 
 
-# application = Application(views.routes, fronts)
+application = Application(views.routes, fronts)
 # application = DebugApplication(views.routes, fronts)
-application = FakeApplication(views.routes, fronts)
+# application = FakeApplication(views.routes, fronts)
 
 
 
