@@ -1,20 +1,10 @@
 from wsgiref.simple_server import make_server
-from framework.core import Application
+from framework.core import Application, FakeApplication, DebugApplication
 import views
 from logging import Log
 
-logger = Log('main_log')
 
-routes = {'/': views.main_view,
-          '/index/': views.main_view,
-          '/about/': views.about_view,
-          '/contacts/': views.contacts_view,
-          '/category_list/': views.category_list_view,
-          '/course_list/': views.course_list_view,
-          '/create_category/': views.create_category_view,
-          '/create_course/': views.create_course_view,
-          '/copy_course/': views.copy_course_view,
-          }
+logger = Log('main_log')
 
 
 def set_key(request):
@@ -31,10 +21,15 @@ def user_authorize(request):
 
 fronts = [set_key, set_language, user_authorize]
 
-application = Application(routes, fronts)
+
+# application = Application(views.routes, fronts)
+# application = DebugApplication(views.routes, fronts)
+application = FakeApplication(views.routes, fronts)
+
+
+
 
 with make_server('', 8888, application) as httpd:
     print('Start server')
     httpd.serve_forever()
-
 

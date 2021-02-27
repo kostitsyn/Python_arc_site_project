@@ -4,7 +4,7 @@
     <ul>
         {% for item in obj_list %}
         <li>
-            {{item.name}}({{item.category.name}}, {{ item.type }})<span><a href="/copy_course/?name={{item.name}}">Скопировать</a></span>
+            <b>{{item.name}}</b> ({{item.subcategory.name}}/{{item.subcategory.category.name}} <i>{{ item.type }}</i>)<span><a href="/copy_course/?name={{item.name}}">Скопировать</a></span>
         </li>
         {% endfor %}
     </ul>

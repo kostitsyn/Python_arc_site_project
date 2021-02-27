@@ -9,10 +9,10 @@
                 <option>{{item}}</option>
             {% endfor %}
         </select><br>
-        <span>Категория</span>
-        <select class="element" name="category_id">
-            {% for item in categories %}
-                <option value="{{item.id}}">{{item.name}}</option>
+        <span>Подкатегория(категория)</span>
+        <select class="element" name="subcategory_id">
+            {% for item in subcategories %}
+                <option value="{{item.id}}">{{item.name}}({{item.category.name}})</option>
             {% endfor %}
         </select><br>
         <button type="submit">Сохранить</button>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "includes/inc_main_menu.html" %}
+    <form method="post">
+        <input class="element" type="text" name="name" placeholder="Название подкатегории"><br>
+        <span>Категория</span>
+        <select class="element" name="category_id">
+            {% for item in categories %}
+                <option value="{{item.id}}">{{item.name}}</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Сохранить</button>
+    </form>
+{% endblock %}

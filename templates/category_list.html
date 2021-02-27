@@ -2,9 +2,16 @@
 {% block body %}
 {% include "includes/inc_main_menu.html" %}
     <ul>
-        {% for item in obj_list %}
+        {% for category in category_list %}
         <li>
-            {{item.name}} <span>Количество курсов: {{item.course_count()}}</span>
+            <b>{{category.name}}:</b> <span>общее количество курсов: {{category.course_count()}}</span>
+            <ul>
+                {% for subcategory in category.subcategories_set %}
+                <li>
+                    <b>{{subcategory.name}}:</b> <span>количество курсов: {{subcategory.course_count()}}</span>
+                </li>
+                {% endfor %}
+            </ul>
         </li>
         {% endfor %}
     </ul>
