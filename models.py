@@ -1,14 +1,19 @@
 from abc import ABC
 
 from patterns.prototype import PrototypeMixin
-from logging import Log
 
-logger = Log('main_log')
+from patterns.observer import Subject, Observer
+
+from log_settings import Log, ConsoleLog, FileLog
+
+logger = Log(ConsoleLog(), 'main_log')
+# logger = Log(FileLog(), 'main_log')
 
 
 class User(ABC):
-    def __init__(self, name):
+    def __init__(self, name, surname):
         self.name = name
+        self.surname = surname
 
 
 class Teacher(User):
@@ -16,7 +21,13 @@ class Teacher(User):
 
 
 class Student(User):
-    pass
+    auto_id = 0
+
+    def __init__(self, name, surname):
+        super().__init__(name, surname)
+        self.courses = list()
+        self.id = Student.auto_id
+        Student.auto_id += 1
 
 
 class UserFactory:
@@ -26,8 +37,8 @@ class UserFactory:
     }
 
     @classmethod
-    def create_user(cls, type, name):
-        return cls.user_types[type](name)
+    def create_user(cls, type, name, surname):
+        return cls.user_types[type](name, surname)
 
 
 class Category:
@@ -61,25 +72,72 @@ class SubCategory:
         return len(self.courses_set)
 
 
-class Course(ABC, PrototypeMixin):
+class Course(PrototypeMixin, Subject):
+    auto_id = 0
 
     def __init__(self, type, course_name, subcategory):
+        super().__init__()
         self.type = type
         self.name = course_name
         self.subcategory = subcategory
+        self.students = list()
         self.subcategory.courses_set.add(self)
+        self.id = Course.auto_id
+        Course.auto_id += 1
+
+    def add_student(self, student):
+        self.students.append(student)
+        student.courses.append(self)
+        self.notify()
+
+    def attach(self, observer):
+        self._observers.append(observer)
+
+    def detach(self, observer):
+        self._observers.remove(observer)
+
+    def notify(self):
+        for observer in self._observers:
+            observer.update(self)
+
+
+class SmsNotifier(Observer):
+    def update(self, course_obj):
+        logger.msg(f'SMS: К курсу {course_obj.name} присоединился'
+                   f' {course_obj.students[-1].name} {course_obj.students[-1].surname}')
+
+
+class EmailNotifier(Observer):
+    def update(self, course_obj):
+        logger.msg(f'EMAIL: К курсу {course_obj.name} присоединился'
+                   f' {course_obj.students[-1].name} {course_obj.students[-1].surname}')
 
 
 class CourseInteractive(Course):
-    pass
+    auto_id = 0
+
+    def __init__(self, type, course_name, subcategory):
+        super().__init__(type, course_name, subcategory)
+        self.id = CourseInteractive.auto_id
+        CourseInteractive.auto_id += 1
 
 
 class CourseRecord(Course):
-    pass
+    auto_id = 0
+
+    def __init__(self, type, course_name, subcategory):
+        super().__init__(type, course_name, subcategory)
+        self.id = CourseInteractive.auto_id
+        CourseInteractive.auto_id += 1
 
 
 class CourseWebinar(Course):
-    pass
+    auto_id = 0
+
+    def __init__(self, type, course_name, subcategory):
+        super().__init__(type, course_name, subcategory)
+        self.id = CourseInteractive.auto_id
+        CourseInteractive.auto_id += 1
 
 
 class CourseFactory:
@@ -102,8 +160,8 @@ class TrainingSite:
         self.subcategories = []
         self.courses = []
 
-    def create_user(self, type, name):
-        new_user = UserFactory.create_user(type, name)
+    def create_user(self, type, name, surname):
+        new_user = UserFactory.create_user(type, name, surname)
         if type == 'teacher':
             self.teachers.append(new_user)
         else:
@@ -134,6 +192,10 @@ class TrainingSite:
                 logger.msg(f'Внимание! такой курс уже существует в подкатегории {course.subcategory.name}.')
                 return
         new_course = CourseFactory.create_course(type, name, subcategory)
+        email_notifier = EmailNotifier()
+        sms_notifier = SmsNotifier()
+        new_course.attach(email_notifier)
+        new_course.attach(sms_notifier)
         self.courses.append(new_course)
         return new_course
 
@@ -141,19 +203,25 @@ class TrainingSite:
         for category in self.categories:
             if category.id == category_id:
                 return category
-        logger.msg(f'Категории с id = {category_id} не существует!')
+        logger.msg('Такой категории не существует!')
 
     def get_subcategory_by_id(self, subcategory_id):
         for subcategory in self.subcategories:
             if subcategory.id == subcategory_id:
                 return subcategory
-        logger.msg(f'Подкатегории с id = {subcategory_id} не существует!')
+        logger.msg('Такой подкатегории не существует!')
 
-    def get_course_by_name(self, name):
+    def get_course_by_id(self, course_id):
         for course in self.courses:
-            if course.name == name:
+            if course.id == course_id:
                 return course
-        logger.msg(f'Курса с названием "{name}" не существует!')
+        logger.msg('Такого курса не существует!')
+
+    def get_student_by_id(self, student_id):
+        for student in self.students:
+            if student.id == student_id:
+                return student
+        logger.msg('Такого студента не существует!')
 
 
 def fill_with_objects(site):

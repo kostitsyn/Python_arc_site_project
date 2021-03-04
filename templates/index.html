@@ -1,18 +1,5 @@
 {% extends "base.html" %}
 {% block body %}
 {% include "includes/inc_main_menu.html" %}
-    <div>Значения из Front Controller: {{secret}}, {{language}}</div>
-    <h3>Форма GET-запроса с параметрами</h3>
-        <form method="get">
-            <input class="element" name="name" placeholder="Ваше имя"><br><br>
-            <input class="element" name="surname" placeholder="Ваша фамилия"><br><br>
-            <input class="element" name="age" type="number" placeholder="Ваш возраст"><br><br>
-            <select class="element" name="user_type">
-                {% for type in user_types %}
-                    <option>{{type}}</option>
-                {% endfor %}
-            </select><br>
-            <input class="element" type="submit">
-            <input class="element" type="reset">
-        </form>
+    <div>Значения из Front Controller: {{secret_key}}, {{language}}</div>
 {% endblock %}

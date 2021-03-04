@@ -1,7 +1,7 @@
 from time import time
-from logging import Log
+from log_settings import Log, FileLog, ConsoleLog
 
-logger = Log('main_log')
+logger = Log(ConsoleLog(), 'main_log')
 
 
 def debug(func):

@@ -2,7 +2,7 @@
 {% block body %}
 {% include "includes/inc_main_menu.html" %}
     <ul>
-        {% for category in category_list %}
+        {% for category in objects_list %}
         <li>
             <b>{{category.name}}:</b> <span>общее количество курсов: {{category.course_count()}}</span>
             <ul>

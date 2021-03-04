@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "includes/inc_main_menu.html" %}
+    <ul>
+        {% for student in objects_list %}
+        <li>
+            {{student.name}} {{student.surname}}
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

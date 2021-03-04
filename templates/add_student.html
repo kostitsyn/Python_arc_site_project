@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "includes/inc_main_menu.html" %}
+    <form method="post">
+        <span>Студент</span>
+        <select class="element" name="student_id">
+            {% for item in students_list %}
+                <option value="{{item.id}}">{{item.name}} {{item.surname}}</option>
+            {% endfor %}
+        </select><br>
+        <span>Курс</span>
+        <select class="element" name="course_id">
+            {% for item in courses_list %}
+                <option value="{{item.id}}">{{item.name}}</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Сохранить</button>
+    </form>
+{% endblock %}

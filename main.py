@@ -1,10 +1,6 @@
 from wsgiref.simple_server import make_server
 from framework.core import Application, FakeApplication, DebugApplication
 import views
-from logging import Log
-
-
-logger = Log('main_log')
 
 
 def set_key(request):
@@ -21,7 +17,7 @@ def user_authorize(request):
 
 fronts = [set_key, set_language, user_authorize]
 
-
+a = {}
 application = Application(views.routes, fronts)
 # application = DebugApplication(views.routes, fronts)
 # application = FakeApplication(views.routes, fronts)

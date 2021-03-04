@@ -3,7 +3,7 @@ class Singletone(type):
     _names = []
 
     def __call__(cls, *args, **kwargs):
-        name = args[0]
+        name = args[1]
 
         if name not in cls._names:
             instance = super().__call__(*args, **kwargs)

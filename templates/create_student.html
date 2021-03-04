@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "includes/inc_main_menu.html" %}
+    <form method="post">
+        <input class="element" name="name" placeholder="Ваше имя"><br><br>
+        <input class="element" name="surname" placeholder="Ваша фамилия"><br><br>
+        <button type="submit">Сохранить</button>
+    </form>
+{% endblock %}

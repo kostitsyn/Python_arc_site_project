@@ -2,9 +2,9 @@
 {% block body %}
 {% include "includes/inc_main_menu.html" %}
     <ul>
-        {% for item in obj_list %}
+        {% for item in objects_list %}
         <li>
-            <b>{{item.name}}</b> ({{item.subcategory.name}}/{{item.subcategory.category.name}} <i>{{ item.type }}</i>)<span><a href="/copy_course/?name={{item.name}}">Скопировать</a></span>
+            <b>{{item.name}}</b> ({{item.subcategory.name}}/{{item.subcategory.category.name}} <i>{{ item.type }}</i>)<span><a href="/copy_course/?name={{item.name}}&course_id={{item.id}}">Скопировать</a></span>
         </li>
         {% endfor %}
     </ul>
