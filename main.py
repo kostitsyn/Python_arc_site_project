@@ -1,6 +1,11 @@
 from wsgiref.simple_server import make_server
 from framework.core import Application, FakeApplication, DebugApplication
 import views
+from orm.unit_of_work import UnitOfWork
+from mappers import MapperRegistry
+
+UnitOfWork.new_current()
+UnitOfWork.get_current().set_mapper_registry(MapperRegistry)
 
 
 def set_key(request):

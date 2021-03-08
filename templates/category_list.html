@@ -6,7 +6,7 @@
         <li>
             <b>{{category.name}}:</b> <span>общее количество курсов: {{category.course_count()}}</span>
             <ul>
-                {% for subcategory in category.subcategories_set %}
+                {% for subcategory in category.subcategories_list %}
                 <li>
                     <b>{{subcategory.name}}:</b> <span>количество курсов: {{subcategory.course_count()}}</span>
                 </li>

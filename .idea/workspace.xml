@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="342024e8-30ec-4662-b6b8-351cc2ff874d" name="Default Changelist" comment="" />
+    <list default="true" id="342024e8-30ec-4662-b6b8-351cc2ff874d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/create_db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/create_db.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mappers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orm/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/orm/unit_of_work.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Урок 5. Практическое задание.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework" beforeDir="false" afterPath="$PROJECT_DIR$/framework" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/patterns/prototype.py" beforeDir="false" afterPath="$PROJECT_DIR$/patterns/prototype.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/course_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/course_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/create_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create_course.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/student_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/student_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,23 +48,24 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Урок 7. Пример практического задания" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Программирование\IV четверть\Python_arc_and_Design_patterns\Урок 4. Порождающие паттерны\Урок 4. Практическое задание" />
-      <recent name="E:\Программирование\IV четверть\Python_arc_and_Design_patterns\Урок 3. Принципы проектирования\Урок 3. Практическое задание\framework" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="E:\Программирование\IV четверть\Python_arc_and_Design_patterns\Урок 4. Порождающие паттерны\Урок 4. Практическое задание\templates" />
       <recent name="E:\Программирование\IV четверть\Python_arc_and_Design_patterns\Урок 2. Архитектура Python-приложений\Урок 2. Практическое задание\framework" />
       <recent name="E:\Программирование\IV четверть\Python_arc_and_Design_patterns\Урок 1. Паттерны web-представления\Урок 1. Практическое задание" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Программирование\IV четверть\Python_arc_and_Design_patterns\Урок 4. Порождающие паттерны\Урок 4. Практическое задание" />
+      <recent name="E:\Программирование\IV четверть\Python_arc_and_Design_patterns\Урок 3. Принципы проектирования\Урок 3. Практическое задание\framework" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Урок 5. Практическое задание" />
+      <module name="Урок 7. Практическое задание" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -65,8 +85,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="log_settings" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Урок 5. Практическое задание" />
+    <configuration name="2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Урок 7. Практическое задание" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -77,7 +97,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/log_settings.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -86,19 +106,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="logging (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Урок 5. Практическое задание" />
+    <configuration name="create_db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Урок 7. Практическое задание" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Урок 5. Структурные паттерны/Урок 5. Практическое задание" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Урок 5. Структурные паттерны/Урок 5. Практическое задание/logging.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/create_db.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -108,7 +128,7 @@
       <method v="2" />
     </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Урок 5. Практическое задание" />
+      <module name="Урок 7. Практическое задание" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -128,19 +148,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="modules_4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Урок 5. Практическое задание" />
+    <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Урок 7. Практическое задание" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="/media/aleksandr/C2E01A62E01A5D4B/Программирование/III четверть/Client-server apps/Урок 1. Концепции хранения информации/Урок 1. Коды примеров" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="/media/aleksandr/C2E01A62E01A5D4B/Программирование/III четверть/Client-server apps/Урок 1. Концепции хранения информации/Урок 1. Коды примеров/modules_4.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,10 +172,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.models" />
         <item itemvalue="Python.1" />
-        <item itemvalue="Python.log_settings" />
-        <item itemvalue="Python.modules_4" />
-        <item itemvalue="Python.logging (1)" />
+        <item itemvalue="Python.create_db" />
+        <item itemvalue="Python.2" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +191,7 @@
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -185,54 +205,28 @@
     </task>
     <servers />
   </component>
-  <component name="WindowStateProjectService">
-    <state width="1899" height="296" key="GridCell.Tab.0.bottom" timestamp="1614856254718">
-      <screen x="1920" y="52" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="296" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1614856254718" />
-    <state width="1899" height="296" key="GridCell.Tab.0.center" timestamp="1614856254717">
-      <screen x="1920" y="52" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="296" key="GridCell.Tab.0.center/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1614856254717" />
-    <state width="1899" height="296" key="GridCell.Tab.0.left" timestamp="1614856254717">
-      <screen x="1920" y="52" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="296" key="GridCell.Tab.0.left/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1614856254717" />
-    <state width="1899" height="296" key="GridCell.Tab.0.right" timestamp="1614856254718">
-      <screen x="1920" y="52" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="296" key="GridCell.Tab.0.right/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1614856254718" />
-    <state width="1914" height="329" key="GridCell.Tab.1.bottom" timestamp="1614856254715">
-      <screen x="1920" y="52" width="1920" height="1040" />
-    </state>
-    <state width="1914" height="329" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1614856254715" />
-    <state width="1914" height="329" key="GridCell.Tab.1.center" timestamp="1614856254715">
-      <screen x="1920" y="52" width="1920" height="1040" />
-    </state>
-    <state width="1914" height="329" key="GridCell.Tab.1.center/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1614856254715" />
-    <state width="1914" height="329" key="GridCell.Tab.1.left" timestamp="1614856254715">
-      <screen x="1920" y="52" width="1920" height="1040" />
-    </state>
-    <state width="1914" height="329" key="GridCell.Tab.1.left/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1614856254715" />
-    <state width="1914" height="329" key="GridCell.Tab.1.right" timestamp="1614856254715">
-      <screen x="1920" y="52" width="1920" height="1040" />
-    </state>
-    <state width="1914" height="329" key="GridCell.Tab.1.right/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1614856254715" />
-    <state x="2381" y="215" key="SettingsEditor" timestamp="1614835086694">
-      <screen x="1920" y="52" width="1920" height="1040" />
-    </state>
-    <state x="2381" y="215" key="SettingsEditor/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1614835086694" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/../../../../III четверть/Data base and PyQT/Урок 2. Дескрипторы и метаклассы/Урок 2. Практическое задание/lesson_2_Kostitsyn/descriptors.py</url>
+          <url>file://I:/../../III четверть/Data base and PyQT/Урок 2. Дескрипторы и метаклассы/Урок 2. Практическое задание/lesson_2_Kostitsyn/descriptors.py</url>
           <line>16</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/../../../../III четверть/Data base and PyQT/Урок 2. Дескрипторы и метаклассы/Урок 2. Практическое задание/lesson_2_Kostitsyn/client.py</url>
+          <url>file://I:/../../III четверть/Data base and PyQT/Урок 2. Дескрипторы и метаклассы/Урок 2. Практическое задание/lesson_2_Kostitsyn/client.py</url>
           <line>45</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>

@@ -5,8 +5,8 @@
         <input class="element" type="text" name="name" placeholder="Название курса"><br>
         <span>Тип курса</span>
         <select class="element" name="course_type">
-            {% for item in course_types %}
-                <option>{{item}}</option>
+            {% for item in courses_type %}
+                <option value="{{item.id}}">{{item.name}}</option>
             {% endfor %}
         </select><br>
         <span>Подкатегория(категория)</span>

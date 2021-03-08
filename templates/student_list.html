@@ -5,6 +5,9 @@
         {% for student in objects_list %}
         <li>
             {{student.name}} {{student.surname}}
+            Его курсы: {% for course in student.courses %}
+                        {{course.name}}
+                        {% endfor %}
         </li>
         {% endfor %}
     </ul>

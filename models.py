@@ -6,6 +6,10 @@ from patterns.observer import Subject, Observer
 
 from log_settings import Log, ConsoleLog, FileLog
 
+from orm.unit_of_work import DomainObject
+
+from orm.unit_of_work import UnitOfWork
+
 logger = Log(ConsoleLog(), 'main_log')
 # logger = Log(FileLog(), 'main_log')
 
@@ -20,14 +24,11 @@ class Teacher(User):
     pass
 
 
-class Student(User):
-    auto_id = 0
+class Student(User, DomainObject):
 
     def __init__(self, name, surname):
         super().__init__(name, surname)
         self.courses = list()
-        self.id = Student.auto_id
-        Student.auto_id += 1
 
 
 class UserFactory:
@@ -41,49 +42,38 @@ class UserFactory:
         return cls.user_types[type](name, surname)
 
 
-class Category:
-    auto_id = 0
+class Category(DomainObject):
 
     def __init__(self, name):
         self.name = name
-        self.subcategories_set = set()
-        self.id = Category.auto_id
-        Category.auto_id += 1
+        self.subcategories_list = list()
 
     def course_count(self):
         result = 0
-        for subcategory in self.subcategories_set:
-            result += len(subcategory.courses_set)
+        for subcategory in self.subcategories_list:
+            result += len(subcategory.courses_list)
         return result
 
 
-class SubCategory:
-    auto_id = 0
+class SubCategory(DomainObject):
 
-    def __init__(self, name, category):
+    def __init__(self, name, category_id):
         self.name = name
-        self.courses_set = set()
-        self.category = category
-        self.category.subcategories_set.add(self)
-        self.id = Category.auto_id
-        Category.auto_id += 1
+        self.courses_list = list()
+        self.category_id = category_id
 
     def course_count(self):
-        return len(self.courses_set)
+        return len(self.courses_list)
 
 
-class Course(PrototypeMixin, Subject):
-    auto_id = 0
+class Course(PrototypeMixin, Subject, DomainObject):
 
-    def __init__(self, type, course_name, subcategory):
+    def __init__(self, type_id, course_name, subcategory_id):
         super().__init__()
-        self.type = type
+        self.type_id = type_id
         self.name = course_name
-        self.subcategory = subcategory
+        self.subcategory_id = subcategory_id
         self.students = list()
-        self.subcategory.courses_set.add(self)
-        self.id = Course.auto_id
-        Course.auto_id += 1
 
     def add_student(self, student):
         self.students.append(student)
@@ -113,43 +103,15 @@ class EmailNotifier(Observer):
                    f' {course_obj.students[-1].name} {course_obj.students[-1].surname}')
 
 
-class CourseInteractive(Course):
-    auto_id = 0
-
-    def __init__(self, type, course_name, subcategory):
-        super().__init__(type, course_name, subcategory)
-        self.id = CourseInteractive.auto_id
-        CourseInteractive.auto_id += 1
+class CoursesType(DomainObject):
+    def __init__(self, name):
+        self.name = name
 
 
-class CourseRecord(Course):
-    auto_id = 0
-
-    def __init__(self, type, course_name, subcategory):
-        super().__init__(type, course_name, subcategory)
-        self.id = CourseInteractive.auto_id
-        CourseInteractive.auto_id += 1
-
-
-class CourseWebinar(Course):
-    auto_id = 0
-
-    def __init__(self, type, course_name, subcategory):
-        super().__init__(type, course_name, subcategory)
-        self.id = CourseInteractive.auto_id
-        CourseInteractive.auto_id += 1
-
-
-class CourseFactory:
-    course_types = {
-        'interactive': CourseInteractive,
-        'record': CourseRecord,
-        'webinar': CourseWebinar,
-    }
-
-    @classmethod
-    def create_course(cls, type, name, category):
-        return cls.course_types[type](type, name, category)
+class CoursesStudents(DomainObject):
+    def __init__(self, course_id, student_id):
+        self.course_id = course_id
+        self.student_id = student_id
 
 
 class TrainingSite:
@@ -165,6 +127,9 @@ class TrainingSite:
         if type == 'teacher':
             self.teachers.append(new_user)
         else:
+            new_user.mark_new()
+            UnitOfWork.get_current().commit()
+
             self.students.append(new_user)
         return new_user
 
@@ -174,28 +139,32 @@ class TrainingSite:
                 logger.msg('Такая категория уже существует!')
                 return
         new_category = Category(name)
+        new_category.mark_new()
+        UnitOfWork.get_current().commit()
+
         self.categories.append(new_category)
         return new_category
 
-    def create_subcategory(self, name, category):
+    def create_subcategory(self, name, category_id):
         for subcategory in self.subcategories:
             if subcategory.name == name:
                 logger.msg('Такая подкатегория уже существует!')
                 return
-        new_subcat = SubCategory(name, category)
+        new_subcat = SubCategory(name, category_id)
+        new_subcat.mark_new()
+        UnitOfWork.get_current().commit()
+
         self.subcategories.append(new_subcat)
         return new_subcat
 
-    def create_course(self, type, name, subcategory):
+    def create_course(self, type_id, name, subcategory_id):
         for course in self.courses:
-            if course.name == name and course.subcategory.name == subcategory.name:
+            if course.name == name:
                 logger.msg(f'Внимание! такой курс уже существует в подкатегории {course.subcategory.name}.')
                 return
-        new_course = CourseFactory.create_course(type, name, subcategory)
-        email_notifier = EmailNotifier()
-        sms_notifier = SmsNotifier()
-        new_course.attach(email_notifier)
-        new_course.attach(sms_notifier)
+        new_course = Course(type_id, name, subcategory_id)
+        new_course.mark_new()
+        UnitOfWork.get_current().commit()
         self.courses.append(new_course)
         return new_course
 
@@ -223,30 +192,18 @@ class TrainingSite:
                 return student
         logger.msg('Такого студента не существует!')
 
+    def add_student(self, course, student):
+        new_record = CoursesStudents(course.id, student.id)
 
-def fill_with_objects(site):
-    """Создать объекты категорий и курсов этих категорий."""
-    course_types = list(CourseFactory.course_types.keys())
-    catalog = [['Программирование', [['Python', [['Основы Питона', course_types[0]], ['Алгоритмы', course_types[2]],
-                                                 ['Клиент-серверные приложения', course_types[2]]]],
-                                     ['JavaScript',
-                                      [['Основы JS', course_types[1]], ['Продвинутый JS', course_types[2]]]],
-                                     ['MySql',
-                                      [['PostgreSql', course_types[2]], ['Не реляционные БД', course_types[2]]]]]],
-               ['Дизайн', [['Веб-дизайн', [['Основы Adobe Photoshop', course_types[0]],
-                                           ['Adobe Illustrator для дизайнеров', course_types[2]]]],
-                           ['Дизайн жилых интерьеров',
-                            [['Основы ArchiCAD', course_types[1]], ['Основы Adobe Photoshop', course_types[0]],
-                             ['Adobe Illustrator для дизайнеров', course_types[2]]]]]]
-               ]
+        email_notifier = EmailNotifier()
+        sms_notifier = SmsNotifier()
+        course.attach(email_notifier)
+        course.attach(sms_notifier)
+        course.add_student(student)
 
-    for category, subcategories in catalog:
-        cat_obj = site.create_category(category)
-        for subcategory, courses in subcategories:
-            subcat_obj = site.create_subcategory(subcategory, cat_obj)
-            [site.create_course(course[1], course[0], subcat_obj) for course in courses]
+        new_record.mark_new()
+        UnitOfWork.get_current().commit()
 
-
-if __name__ == '__main__':
-    site = TrainingSite()
-    fill_with_objects(site)
+    def add_copy_course(self, copy_course):
+        copy_course.mark_new()
+        UnitOfWork.get_current().commit()
