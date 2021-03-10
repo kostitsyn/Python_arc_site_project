@@ -48,7 +48,7 @@ class BaseMapper(ABC):
         pass
 
 
-class UnitOfWork:
+class IdentityMap:
     object_map = {}
 
     @classmethod
@@ -64,6 +64,131 @@ class UnitOfWork:
             return None
 
 
+class Filler:
+    @classmethod
+    def fill_category_with_subcat(cls, category_obj, cursor):
+        statement = f'SELECT * FROM subcategories WHERE category_id=?'
+        cursor.execute(statement, (category_obj.id,))
+        subcategories_result = cursor.fetchall()
+        for data in subcategories_result:
+            subcat_obj = IdentityMap.get_object(f'subcategories_{data[0]}')
+
+            if subcat_obj and not len(subcat_obj.courses_list):
+                Filler.fill_subcategory_with_courses(subcat_obj, cursor)
+
+            if not subcat_obj:
+                subcat_obj = SubCategory(*data[1:])
+                subcat_obj.id = data[0]
+                subcat_obj.other_id = f'subcategories_{data[0]}'
+                IdentityMap.add_object(subcat_obj)
+                Filler.fill_subcategory_with_courses(subcat_obj, cursor)
+            id_list = [obj.id for obj in category_obj.subcategories_list]
+            if subcat_obj.id not in id_list:
+                category_obj.subcategories_list.append(subcat_obj)
+
+    @classmethod
+    def fill_subcategory_with_courses(cls, subcat_obj, cursor):
+        statement = f'SELECT * FROM courses WHERE subcategory_id=?'
+        cursor.execute(statement, (subcat_obj.id,))
+        courses_result = cursor.fetchall()
+        for data in courses_result:
+            course_obj = IdentityMap.get_object(f'courses_{data[0]}')
+
+            if course_obj and not len(course_obj.students):
+                Filler.fill_course_with_students(course_obj, cursor)
+
+            if not course_obj:
+                course_obj = Course(*data[1:])
+                course_obj.id = data[0]
+                course_obj.other_id = f'courses_{data[0]}'
+                IdentityMap.add_object(course_obj)
+                Filler.fill_course_with_students(course_obj, cursor)
+            id_list = [obj.id for obj in subcat_obj.courses_list]
+            if course_obj.id not in id_list:
+                subcat_obj.courses_list.append(course_obj)
+
+    @classmethod
+    def fill_course_with_students(cls, course_obj, cursor):
+        statement = f"SELECT (SELECT id FROM students WHERE students.id = courses_students.student_id) AS id, " \
+                    f"(SELECT name FROM students WHERE students.id = courses_students.student_id) AS name, " \
+                    f"(SELECT surname FROM students WHERE students.id = courses_students.student_id) AS surname " \
+                    f"FROM courses_students WHERE course_id=?"
+
+        cursor.execute(statement, (course_obj.id,))
+        students_result = cursor.fetchall()
+        for data in students_result:
+            student_obj = IdentityMap.get_object(f'students_{data[0]}')
+            if not student_obj:
+                student_obj = Student(*data[1:])
+                student_obj.id = data[0]
+                student_obj.other_id = f'students_{data[0]}'
+                IdentityMap.add_object(student_obj)
+            id_list = [obj.id for obj in course_obj.students]
+            if student_obj.id not in id_list:
+                course_obj.students.append(student_obj)
+
+    @classmethod
+    def fill_student_with_courses(cls, student_obj, cursor):
+        statement = f"SELECT (SELECT id FROM courses WHERE courses.id = courses_students.course_id) AS id, " \
+                    f"(SELECT type_id FROM courses WHERE courses.id = courses_students.course_id) AS type_id, " \
+                    f"(SELECT name FROM courses WHERE courses.id = courses_students.course_id) AS name, " \
+                    f"(SELECT subcategory_id FROM courses WHERE courses.id = courses_students.course_id) AS subcategory_id " \
+                    f"FROM courses_students WHERE student_id=?"
+        cursor.execute(statement, (student_obj.id,))
+        courses_result = cursor.fetchall()
+        for data in courses_result:
+            course_obj = IdentityMap.get_object(f'courses_{data[0]}')
+            if not course_obj:
+                course_obj = Course(*data[1:])
+                course_obj.id = data[0]
+                course_obj.other_id = f'courses_{data[0]}'
+                IdentityMap.add_object(course_obj)
+            id_list = [obj.id for obj in student_obj.courses]
+            if course_obj.id not in id_list:
+                student_obj.courses.append(course_obj)
+
+    @classmethod
+    def set_subcat_on_course(cls, course_obj, cursor):
+        subcat_obj = IdentityMap.get_object(f'subcategories_{course_obj.subcategory_id}')
+        if subcat_obj and not hasattr(subcat_obj, 'category'):
+            Filler.set_category_on_subcat(subcat_obj, cursor)
+        if not subcat_obj:
+            statement = f'SELECT * FROM subcategories WHERE id=?'
+            cursor.execute(statement, (course_obj.subcategory_id,))
+            subcat_result = cursor.fetchone()
+            subcat_obj = SubCategory(*subcat_result[1:])
+            subcat_obj.id = subcat_result[0]
+            subcat_obj.other_id = f'subcategories_{course_obj.subcategory_id}'
+            IdentityMap.add_object(subcat_obj)
+        course_obj.subcategory = subcat_obj
+
+    @classmethod
+    def set_type_on_course(cls, course_obj, cursor):
+        type_obj = IdentityMap.get_object(f'courses_type_{course_obj.type_id}')
+        if not type_obj:
+            statement = f'SELECT * FROM courses_type WHERE id=?'
+            cursor.execute(statement, (course_obj.type_id,))
+            type_result = cursor.fetchone()
+            type_obj = CoursesType(*type_result[1:])
+            type_obj.id = type_result[0]
+            type_obj.other_id = f'courses_type_{course_obj.type_id}'
+            IdentityMap.add_object(type_obj)
+        course_obj.type = type_obj
+
+    @classmethod
+    def set_category_on_subcat(cls, subcat_obj, cursor):
+        category_obj = IdentityMap.get_object(f'categories_{subcat_obj.category_id}')
+        if not category_obj:
+            statement = f'SELECT * FROM categories WHERE id=?'
+            cursor.execute(statement, (subcat_obj.category_id,))
+            category_result = cursor.fetchone()
+            category_obj = Category(*category_result[1:])
+            category_obj.id = category_result[0]
+            category_obj.other_id = f'categories_{subcat_obj.category_id}'
+            IdentityMap.add_object(category_obj)
+        subcat_obj.category = category_obj
+
+
 class CategoryMapper(BaseMapper):
 
     def __init__(self, connection):
@@ -77,14 +202,23 @@ class CategoryMapper(BaseMapper):
         obj_list = []
         result = self.cursor.fetchall()
         for item in result:
-            item_id, item = item[0], item[1:]
-            category_obj = Category(*item)
-            category_obj.id = item_id
+            item_id, item = item
+            category_obj = IdentityMap.get_object(f'{self.tablename}_{item_id}')
+            if category_obj and not len(category_obj.subcategories_list):
+                Filler.fill_category_with_subcat(category_obj, self.cursor)
+            if not category_obj:
+                category_obj = Category(item)
+                category_obj.id = item_id
+
+                Filler.fill_category_with_subcat(category_obj, self.cursor)
+
+                category_obj.other_id = f'{self.tablename}_{item_id}'
+                IdentityMap.add_object(category_obj)
             obj_list.append(category_obj)
         return obj_list
 
     def find_by_id(self, id):
-        item_obj = UnitOfWork.get_object(f'{self.tablename}_{id}')
+        item_obj = IdentityMap.get_object(f'{self.tablename}_{id}')
         if not item_obj:
             statement = f"SELECT name FROM {self.tablename} WHERE id=?"
             self.cursor.execute(statement, (id,))
@@ -93,7 +227,7 @@ class CategoryMapper(BaseMapper):
                 item_obj = Category(*result)
                 item_obj.id = id
                 item_obj.other_id = f'{self.tablename}_{id}'
-                UnitOfWork.add_object(item_obj)
+                IdentityMap.add_object(item_obj)
             else:
                 raise RecordNotFoundException(f'Категория с id={id} не найдена!')
         return item_obj
@@ -137,27 +271,39 @@ class SubCategoryMapper(BaseMapper):
         result = self.cursor.fetchall()
         for item in result:
             item_id, name, category_id = item
+            subcat_obj = IdentityMap.get_object(f'{self.tablename}_{item_id}')
+            if subcat_obj and not len(subcat_obj.courses_list):
+                Filler.fill_subcategory_with_courses(subcat_obj, self.cursor)
+            if subcat_obj and not hasattr(subcat_obj, 'category'):
+                Filler.set_category_on_subcat(subcat_obj, self.cursor)
+            if not subcat_obj:
+                subcat_obj = SubCategory(name, category_id)
+                subcat_obj.id = item_id
 
-            statement = f'SELECT name FROM categories WHERE id=?'
-            self.cursor.execute(statement, (category_id,))
-            get_category_result = self.cursor.fetchone()
-            category_obj = Category(*get_category_result)
+                category_obj = IdentityMap.get_object(f'categories_{category_id}')
+                if category_obj and not len(category_obj.subcategories_list):
+                    Filler.fill_category_with_subcat(category_obj, self.cursor)
+                if not category_obj:
+                    statement = f'SELECT name FROM categories WHERE id=?'
+                    self.cursor.execute(statement, (category_id,))
+                    category_result = self.cursor.fetchone()
+                    category_obj = Category(*category_result)
+                    category_obj.id = category_id
 
-            subcat_obj = SubCategory(name, category_id)
-            subcat_obj.id = item_id
-            subcat_obj.category = category_obj
+                    Filler.fill_category_with_subcat(category_obj, self.cursor)
 
-            statement = f'SELECT * FROM courses WHERE subcategory_id=?'
-            self.cursor.execute(statement, (item_id,))
-            get_courses_result = self.cursor.fetchall()
-            for data in get_courses_result:
-                course_obj = Course(*data[1:])
-                subcat_obj.courses_list.append(course_obj)
+                    category_obj.other_id = f'categories_{category_id}'
+                    IdentityMap.add_object(category_obj)
+                subcat_obj.category = category_obj
+
+                Filler.fill_subcategory_with_courses(subcat_obj, self.cursor)
+                subcat_obj.other_id = f'{self.tablename}_{item_id}'
+                IdentityMap.add_object(subcat_obj)
             obj_list.append(subcat_obj)
         return obj_list
 
     def find_by_id(self, id):
-        item_obj = UnitOfWork.get_object(f'{self.tablename}_{id}')
+        item_obj = IdentityMap.get_object(f'{self.tablename}_{id}')
         if not item_obj:
             statement = f"SELECT name FROM {self.tablename} WHERE id=?"
             self.cursor.execute(statement, (id,))
@@ -166,7 +312,7 @@ class SubCategoryMapper(BaseMapper):
                 item_obj = SubCategory(*result)
                 item_obj.id = id
                 item_obj.other_id = f'{self.tablename}_{id}'
-                UnitOfWork.add_object(item_obj)
+                IdentityMap.add_object(item_obj)
             else:
                 raise RecordNotFoundException(f'Подкатегория с id={id} не найдена!')
         return item_obj
@@ -211,33 +357,44 @@ class CourseMapper(BaseMapper):
         for item in result:
             item_id, type_id, name, subcategory_id = item
 
-            statement = f'SELECT name FROM courses_type WHERE id=?'
-            self.cursor.execute(statement, (type_id,))
-            get_type_result = self.cursor.fetchone()
-            type_obj = CoursesType(*get_type_result)
+            course_obj = IdentityMap.get_object(f'{self.tablename}_{item_id}')
 
-            statement = f'SELECT name, category_id FROM subcategories WHERE id=?'
-            self.cursor.execute(statement, (subcategory_id,))
-            get_subcat_result = self.cursor.fetchone()
-            subcat_obj = SubCategory(*get_subcat_result)
+            if course_obj and not hasattr(course_obj, 'type'):
+                Filler.set_type_on_course(course_obj, self.cursor)
 
-            category_id = get_subcat_result[1]
+            if course_obj and not hasattr(course_obj, 'subcategory'):
+                Filler.set_subcat_on_course(course_obj, self.cursor)
 
-            statement = f'SELECT name FROM categories WHERE id=?'
-            self.cursor.execute(statement, (category_id,))
-            get_category_result = self.cursor.fetchone()
-            category_obj = Category(*get_category_result)
+            if not course_obj:
+                course_obj = Course(type_id, name, subcategory_id)
+                course_obj.id = item_id
 
-            course_obj = Course(type_id, name, subcategory_id)
-            course_obj.id = item_id
-            course_obj.type = type_obj
-            course_obj.subcategory = subcat_obj
-            course_obj.subcategory.category = category_obj
+                subcat_obj = IdentityMap.get_object(f'subcategories_{subcategory_id}')
+
+                if subcat_obj and not hasattr(subcat_obj, 'category'):
+                    Filler.set_category_on_subcat(subcat_obj, self.cursor)
+
+                if not subcat_obj:
+                    statement = f'SELECT * FROM subcategories WHERE id=?'
+                    self.cursor.execute(statement, (subcategory_id,))
+                    subcat_result = self.cursor.fetchone()
+                    subcat_obj = SubCategory(*subcat_result[1:])
+                    subcat_obj.id = subcat_result[0]
+                    subcat_obj.other_id = f'subcategories_{subcategory_id}'
+                    Filler.set_category_on_subcat(subcat_obj, self.cursor)
+                    IdentityMap.add_object(subcat_obj)
+
+                Filler.set_type_on_course(course_obj, self.cursor)
+                Filler.set_subcat_on_course(course_obj, self.cursor)
+
+                course_obj.other_id = f'{self.tablename}_{item_id}'
+                IdentityMap.add_object(course_obj)
+
             obj_list.append(course_obj)
         return obj_list
 
     def find_by_id(self, id):
-        item_obj = UnitOfWork.get_object(f'{self.tablename}_{id}')
+        item_obj = IdentityMap.get_object(f'{self.tablename}_{id}')
         if not item_obj:
             statement = f"SELECT type_id, name, subcategory_id FROM {self.tablename} WHERE id=?"
             self.cursor.execute(statement, (id,))
@@ -246,11 +403,10 @@ class CourseMapper(BaseMapper):
                 item_obj = Course(*result)
                 item_obj.id = id
                 item_obj.other_id = f'{self.tablename}_{id}'
-                UnitOfWork.add_object(item_obj)
+                IdentityMap.add_object(item_obj)
             else:
                 raise RecordNotFoundException(f'Курс с id={id} не найден!')
         return item_obj
-
 
     def insert(self, obj):
         statement = f"INSERT INTO {self.tablename} (type_id, name, subcategory_id) VALUES (?, ?, ?)"
@@ -291,23 +447,21 @@ class StudentMapper(BaseMapper):
         result = self.cursor.fetchall()
         for item in result:
             item_id, name, surname = item
-            student_obj = Student(name, surname)
-            student_obj.id = item_id
 
-            statement = f"SELECT (SELECT type_id FROM courses WHERE courses.id = courses_students.course_id) AS type_id, " \
-                        f"(SELECT name FROM courses WHERE courses.id = courses_students.course_id) AS name, " \
-                        f"(SELECT subcategory_id FROM courses WHERE courses.id = courses_students.course_id) AS subcategory_id " \
-                        f"FROM courses_students WHERE student_id=?"
-            self.cursor.execute(statement, (item_id,))
-            get_records_result = self.cursor.fetchall()
-            for data in get_records_result:
-                course_obj = Course(*data)
-                student_obj.courses.append(course_obj)
+            student_obj = IdentityMap.get_object(f'{self.tablename}_{item_id}')
+            if student_obj and not len(student_obj.courses):
+                Filler.fill_student_with_courses(student_obj, self.cursor)
+            if not student_obj:
+                student_obj = Student(name, surname)
+                student_obj.id = item_id
+                Filler.fill_student_with_courses(student_obj, self.cursor)
+                student_obj.other_id = f'{self.tablename}_{item_id}'
+                IdentityMap.add_object(student_obj)
             obj_list.append(student_obj)
         return obj_list
 
     def find_by_id(self, id):
-        item_obj = UnitOfWork.get_object(f'{self.tablename}_{id}')
+        item_obj = IdentityMap.get_object(f'{self.tablename}_{id}')
         if not item_obj:
             statement = f"SELECT name, surname FROM {self.tablename} WHERE id=?"
             self.cursor.execute(statement, (id,))
@@ -316,7 +470,7 @@ class StudentMapper(BaseMapper):
                 item_obj = Student(*result)
                 item_obj.id = id
                 item_obj.other_id = f'{self.tablename}_{id}'
-                UnitOfWork.add_object(item_obj)
+                IdentityMap.add_object(item_obj)
             else:
                 raise RecordNotFoundException(f'Студент с id={id} не найден!')
         return item_obj
@@ -360,13 +514,18 @@ class CourseTypeMapper(BaseMapper):
         result = self.cursor.fetchall()
         for item in result:
             item_id, name = item
-            course_type_obj = CoursesType(name)
-            course_type_obj.id = item_id
+
+            course_type_obj = IdentityMap.get_object(f'{self.tablename}_{item_id}')
+            if not course_type_obj:
+                course_type_obj = CoursesType(name)
+                course_type_obj.id = item_id
+                course_type_obj.other_id = f'{self.tablename}_{item_id}'
+                IdentityMap.add_object(course_type_obj)
             obj_list.append(course_type_obj)
         return obj_list
 
     def find_by_id(self, id):
-        item_obj = UnitOfWork.get_object(f'{self.tablename}_{id}')
+        item_obj = IdentityMap.get_object(f'{self.tablename}_{id}')
         if not item_obj:
             statement = f"SELECT name FROM {self.tablename} WHERE id=?"
             self.cursor.execute(statement, (id,))
@@ -375,7 +534,7 @@ class CourseTypeMapper(BaseMapper):
                 item_obj = CoursesType(*result)
                 item_obj.id = id
                 item_obj.other_id = f'{self.tablename}_{id}'
-                UnitOfWork.add_object(item_obj)
+                IdentityMap.add_object(item_obj)
             else:
                 raise RecordNotFoundException(f'Тип курса с id={id} не найден!')
         return item_obj
@@ -419,13 +578,18 @@ class CoursesStudentsMapper(BaseMapper):
         result = self.cursor.fetchall()
         for item in result:
             item_id, course_id, student_id = item
-            course_student_obj = CoursesStudents(course_id, student_id)
-            course_student_obj.id = item_id
+
+            course_student_obj = IdentityMap.get_object(f'courses_students_{item_id}')
+            if not course_student_obj:
+                course_student_obj = CoursesStudents(course_id, student_id)
+                course_student_obj.id = item_id
+                course_student_obj.other_id = f'courses_students_{item_id}'
+                IdentityMap.add_object(course_student_obj)
             obj_list.append(course_student_obj)
         return obj_list
 
     def find_by_id(self, id):
-        item_obj = UnitOfWork.get_object(f'{self.tablename}_{id}')
+        item_obj = IdentityMap.get_object(f'{self.tablename}_{id}')
         if not item_obj:
             statement = f"SELECT course_id, student_id FROM {self.tablename} WHERE id=?"
             self.cursor.execute(statement, (id,))
@@ -434,7 +598,7 @@ class CoursesStudentsMapper(BaseMapper):
                 item_obj = CoursesStudents(*result)
                 item_obj.id = id
                 item_obj.other_id = f'{self.tablename}_{id}'
-                UnitOfWork.add_object(item_obj)
+                IdentityMap.add_object(item_obj)
             else:
                 raise RecordNotFoundException(f'Данные с id={id} не найдены!')
         return item_obj

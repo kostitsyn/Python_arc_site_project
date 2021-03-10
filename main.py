@@ -28,8 +28,6 @@ application = Application(views.routes, fronts)
 # application = FakeApplication(views.routes, fronts)
 
 
-
-
 with make_server('', 8888, application) as httpd:
     print('Start server')
     httpd.serve_forever()

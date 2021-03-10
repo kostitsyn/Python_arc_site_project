@@ -46,15 +46,12 @@ class ContactsView(TemplateView):
 
 
 class CategoryListView(ListView):
+
     template_name = 'category_list.html'
 
+    @debug
     def get_queryset(self):
         category_objects = MapperRegistry.get_current_mapper(Category).get_all_records()
-        subcategory_objects = MapperRegistry.get_current_mapper(SubCategory).get_all_records()
-        for category in category_objects:
-            for subcategory in subcategory_objects:
-                if subcategory.category_id == category.id:
-                    category.subcategories_list.append(subcategory)
         return category_objects
 
     def get_context_data(self):
@@ -67,6 +64,7 @@ class CategoryListView(ListView):
 class CourseListView(ListView):
     template_name = 'course_list.html'
 
+    @debug
     def get_queryset(self):
         course_objects = MapperRegistry.get_current_mapper(Course).get_all_records()
         return course_objects
@@ -81,6 +79,7 @@ class CourseListView(ListView):
 class StudentListView(ListView):
     template_name = 'student_list.html'
 
+    @debug
     def get_queryset(self):
         queryset = MapperRegistry.get_current_mapper(Student).get_all_records()
         return queryset
@@ -95,6 +94,7 @@ class StudentListView(ListView):
 class CreateCategoryView(CreateView):
     template_name = 'create_category.html'
 
+    @debug
     def get_context_data(self):
         logger.msg('Страница "Создание категории"')
         context = super().get_context_data()
@@ -111,6 +111,7 @@ class CreateCategoryView(CreateView):
 class CreateSubcategoryView(CreateView):
     template_name = 'create_subcategory.html'
 
+    @debug
     def get_context_data(self):
         logger.msg('Страница "Создание подкатегории')
         context = super().get_context_data()
@@ -127,6 +128,7 @@ class CreateSubcategoryView(CreateView):
 class CreateCourseView(CreateView):
     template_name = 'create_course.html'
 
+    @debug
     def get_context_data(self):
         logger.msg('Страница "Создание курса"')
         context = super().get_context_data()
@@ -159,6 +161,7 @@ class CreateStudentView(CreateView):
 class AddStudentView(CreateView):
     template_name = 'add_student.html'
 
+    @debug
     def get_context_data(self):
         logger.msg('Страница "Запись студента на курс"')
         context = super().get_context_data()

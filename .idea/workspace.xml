@@ -2,24 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="342024e8-30ec-4662-b6b8-351cc2ff874d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/create_db.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/create_db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mappers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orm/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/orm/unit_of_work.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Урок 5. Практическое задание.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework" beforeDir="false" afterPath="$PROJECT_DIR$/framework" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Урок 7. Практическое задание.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Урок 7. Практическое задание.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/database.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/patterns/prototype.py" beforeDir="false" afterPath="$PROJECT_DIR$/patterns/prototype.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/category_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/course_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/course_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/create_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create_course.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/student_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/student_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +35,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Урок 7. Пример практического задания" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -64,7 +51,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration name="1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="12" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Урок 7. Практическое задание" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -76,49 +63,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Урок 7. Практическое задание" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="create_db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Урок 7. Практическое задание" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/create_db.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/12.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -169,13 +114,55 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="one" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Урок 7. Практическое задание" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="I:\Урок 7. Архитектурные системные паттерны\Урок 7. Практическое задание\one.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="two" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Урок 7. Практическое задание" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/two.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.12" />
+        <item itemvalue="Python.two" />
+        <item itemvalue="Python.one" />
         <item itemvalue="Python.models" />
-        <item itemvalue="Python.1" />
-        <item itemvalue="Python.create_db" />
-        <item itemvalue="Python.2" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +178,7 @@
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -210,12 +197,68 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1899" height="346" key="GridCell.Tab.0.bottom" timestamp="1615373426071">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="346" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1615373426071" />
+    <state width="1899" height="301" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1615290929681" />
+    <state width="1899" height="346" key="GridCell.Tab.0.center" timestamp="1615373426071">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="346" key="GridCell.Tab.0.center/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1615373426071" />
+    <state width="1899" height="301" key="GridCell.Tab.0.center/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1615290929681" />
+    <state width="1899" height="346" key="GridCell.Tab.0.left" timestamp="1615373426071">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="346" key="GridCell.Tab.0.left/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1615373426071" />
+    <state width="1899" height="301" key="GridCell.Tab.0.left/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1615290929681" />
+    <state width="1899" height="346" key="GridCell.Tab.0.right" timestamp="1615373426071">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="346" key="GridCell.Tab.0.right/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1615373426071" />
+    <state width="1899" height="301" key="GridCell.Tab.0.right/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1615290929681" />
+    <state width="1899" height="323" key="GridCell.Tab.1.bottom" timestamp="1615373426065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="323" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1615373426065" />
+    <state width="1899" height="323" key="GridCell.Tab.1.center" timestamp="1615373426065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="323" key="GridCell.Tab.1.center/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1615373426065" />
+    <state width="1899" height="323" key="GridCell.Tab.1.left" timestamp="1615373426065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="323" key="GridCell.Tab.1.left/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1615373426065" />
+    <state width="1899" height="323" key="GridCell.Tab.1.right" timestamp="1615373426065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="323" key="GridCell.Tab.1.right/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1615373426065" />
+    <state x="2381" y="215" key="SettingsEditor" timestamp="1615269728491">
+      <screen x="1920" y="52" width="1920" height="1040" />
+    </state>
+    <state x="2381" y="215" key="SettingsEditor/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1615269728491" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1615351594035">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1615351594035" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1615359692852">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1615359692852" />
+    <state x="2576" y="397" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.52.1920.1040@1920.52.1920.1040" timestamp="1615290938760" />
+    <state x="2015" y="104" width="1588" height="651" maximized="true" key="dock-window-1" timestamp="1615371376059">
+      <screen x="1920" y="52" width="1920" height="1040" />
+    </state>
+    <state x="2015" y="104" width="1588" height="651" maximized="true" key="dock-window-1/0.0.1920.1040/1920.52.1920.1040@0.0.1920.1040" timestamp="1615371376059" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -229,6 +272,11 @@
           <url>file://I:/../../III четверть/Data base and PyQT/Урок 2. Дескрипторы и метаклассы/Урок 2. Практическое задание/lesson_2_Kostitsyn/client.py</url>
           <line>45</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mappers.py</url>
+          <line>386</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
